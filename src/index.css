@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme variables */
+@layer base {
+  :root {
+    --color-bg-primary: #ffffff;
+    --color-bg-secondary: #f9fafb;
+    --color-text-primary: #111827;
+    --color-text-secondary: #4b5563;
+    --color-border: #e5e7eb;
+    --color-accent: #3b82f6;
+    --color-accent-hover: #2563eb;
+  }
+
+  :root[data-theme='dark'] {
+    --color-bg-primary: #111827;
+    --color-bg-secondary: #1f2937;
+    --color-text-primary: #f9fafb;
+    --color-text-secondary: #d1d5db;
+    --color-border: #374151;
+    --color-accent: #60a5fa;
+    --color-accent-hover: #3b82f6;
+  }
+
+  body {
+    @apply antialiased;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-md transition-colors;
+  }
+
+  .btn-primary {
+    background-color: var(--color-accent);
+    color: white;
+    &:hover {
+      background-color: var(--color-accent-hover);
+    }
+  }
+
+  .btn-secondary {
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-primary);
+    &:hover {
+      filter: brightness(95%);
+    }
+  }
+
+  .input {
+    @apply w-full px-4 py-2 rounded-md focus:outline-none focus:ring-2;
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border);
+    &:focus {
+      border-color: var(--color-accent);
+    }
+  }
+
+  .tab {
+    @apply px-4 py-2 text-sm font-medium transition-colors;
+  }
+
+  .tab-active {
+    color: var(--color-accent);
+    border-bottom: 2px solid var(--color-accent);
+  }
+
+  .tab-inactive {
+    color: var(--color-text-secondary);
+    &:hover {
+      color: var(--color-text-primary);
+    }
+  }
+}
+
+/* Scrollbar styles */
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
